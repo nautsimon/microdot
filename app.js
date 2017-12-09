@@ -25,6 +25,7 @@ app.get('/chat/:chatID', (req, res) => {
 
 app.get('/createChat/:chatID', (req, res) => {
     createChat(req.params.chatID);
+    res.send("<h1>Chat created, please go to <a>http://microdot.tech/chat/" + req.params.chatID + "</a></h1>");
 });
 
 server.listen(8080);
