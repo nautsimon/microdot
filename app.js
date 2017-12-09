@@ -12,15 +12,12 @@ const io = require('socket.io')(server);
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/views/index.html");
-});
-
-app.get('/homepage', (req, res) => {
     res.sendFile(__dirname + "/views/home.html");
 });
 
+
 app.get('/chat/:chatID', (req, res) => {
-    res.sendFile(__dirname + "/views/index.html");
+    res.sendFile(__dirname + "/views/chat.html");
 });
 
 app.get('/createChat/:chatID', (req, res) => {
