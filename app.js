@@ -15,8 +15,16 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 });
 
+app.get('/homepage', (req, res) => {
+    res.sendFile(__dirname + "/views/home.html");
+});
+
 app.get('/chat/:chatID', (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
+});
+
+app.get('/createChat/:chatID', (req, res) => {
+    createChat(req.params.chatID);
 });
 
 server.listen(8080);
@@ -32,21 +40,27 @@ var rooms = {};
 io.sockets.on('connection', (socket) => {
     socket.id = Math.random(); // assign the user a random ID
     SOCKETS[socket.id] = socket;
-    rooms["test"] = ""; // define a test room.
+    createChat("test");
 
     socket.on('joinRoom', (room) => {
-        if(rooms[room] != undefined){
+        if(rooms[room] != undefined && rooms[room].users != undefined){
             console.log("haha");
-            //SOCKETS[socket.id].leave(Object.keys(socket.rooms)[1]);
-            SOCKETS[socket.id].join(room);
+            rooms[room].users.push(socket.id);
         }
     });
     
     socket.on('sendMsg', (data) => {
-        console.log(socket.room);
-        for(var i in SOCKETS){
-            let userId = (socket.id + "").slice(2,7);
-            SOCKETS[i].emit('newMsg', {id: userId, msg: data});
+        console.log(socket.rooms);
+        console.log(rooms);
+        let room = Object.keys(socket.rooms)[1];
+        let userId = (socket.id + "").slice(2,7);
+        console.log(room);
+        console.log(rooms)
+        if(rooms[room] != undefined){
+            for(var i in rooms[room].users){
+                console.log(rooms[room].users[i]);
+                SOCKETS[rooms[room].users[i]].emit('newMsg', {id: userId, msg: data});
+            }
         }
     });
 
@@ -55,3 +69,9 @@ io.sockets.on('connection', (socket) => {
         delete SOCKETS[socket.id];
     })
 });
+
+
+function createChat(chatID){
+    rooms[chatID] = {};
+    rooms[chatID].users = [];
+}
