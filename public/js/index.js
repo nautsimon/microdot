@@ -6,11 +6,10 @@ var createMain = document.getElementById('createMain');
 joinMain.onsubmit = function(e){
     console.log("gay");
     e.preventDefault();
-    window.location = window.location + "chat/" + document.getElementById('joinForm').value;
+    window.location = window.location + "chat/" + 
 }
 
 createMain.onsubmit = function(e){
-    console.log("hm");
     e.preventDefault();
-    window.location = window.location + "createChat/" + document.getElementById('createForm').value;
+    window.location = window.location + "createChat/" + document.getElementById('joinForm').value;
 }
