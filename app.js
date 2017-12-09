@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/chat/:chatID', (req, res) => {
-    
+    res.sendFile(__dirname + "/views/index.html");
 });
 
 server.listen(8080);
@@ -27,12 +27,23 @@ server.listen(8080);
 */
 
 var SOCKETS = {};
+var rooms = {};
 
 io.sockets.on('connection', (socket) => {
     socket.id = Math.random(); // assign the user a random ID
     SOCKETS[socket.id] = socket;
+    rooms["test"] = ""; // define a test room.
 
+    socket.on('joinRoom', (room) => {
+        if(rooms[room] != undefined){
+            console.log("haha");
+            //SOCKETS[socket.id].leave(Object.keys(socket.rooms)[1]);
+            SOCKETS[socket.id].join(room);
+        }
+    });
+    
     socket.on('sendMsg', (data) => {
+        console.log(socket.room);
         for(var i in SOCKETS){
             let userId = (socket.id + "").slice(2,7);
             SOCKETS[i].emit('newMsg', {id: userId, msg: data});
