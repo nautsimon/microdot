@@ -11,8 +11,6 @@ html{
 }
 
 body {
-
-overflow: scroll;
   margin: 0 auto;
   background-repeat: no-repeat ;
   background-attachment: fixed;
@@ -23,7 +21,6 @@ overflow: scroll;
   font-weight: 100;
   background: radial-gradient(circle, #E25676,  #6495F5);
   background-size: 600% 600%;
-
   -webkit-animation: colorSpin 30s linear infinite;
   -moz-animation: colorSpin 30s linear infinite;
   animation: colorSpin 30s linear infinite;
@@ -135,4 +132,17 @@ nav a:hover {
   height: 30px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.1);
+}
+.chatarea{
+  color: #fff;
+  padding-left: 15px;
+  padding-top: 15px;
+
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.entrytext{
+
+}
+.message{
+
 }
