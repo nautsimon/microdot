@@ -4,12 +4,13 @@ html, body {
     margin: 0;
     padding: 0;
     color: #FFF;
-    overflow: hidden;
+    
+}
+html{
+	overflow: hidden;
 }
 
-
 body {
-	overflow: scroll;
   margin: 0 auto;
   background-repeat: no-repeat ;
   background-attachment: fixed;
@@ -20,23 +21,11 @@ body {
   font-weight: 100;
   background: radial-gradient(circle, #E25676,  #6495F5);
   background-size: 600% 600%;
- border: 1px solid rgba(0,0,0,0.25)
   -webkit-animation: colorSpin 30s linear infinite;
   -moz-animation: colorSpin 30s linear infinite;
   animation: colorSpin 30s linear infinite;
 }
-body::-webkit-scrollbar {
-    width: 1em;
-}
- 
-body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
- 
-body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-}
+
     @-webkit-keyframes colorSpin {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -143,4 +132,17 @@ nav a:hover {
   height: 30px;
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.1);
+}
+.chatarea{
+  color: #fff;
+  padding-left: 15px;
+  padding-top: 15px;
+
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.entrytext{
+
+}
+.message{
+
 }
