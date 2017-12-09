@@ -1,0 +1,24 @@
+{
+  "name": "microdot",
+  "version": "1.0.0",
+  "description": "Microdot is a self destructing web chatroom created in 9 hours.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avuxo/microdot.git"
+  },
+  "author": "Ben",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avuxo/microdot/issues"
+  },
+  "homepage": "https://github.com/avuxo/microdot#readme"
+}
