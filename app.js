@@ -40,22 +40,18 @@ var rooms = {};
 io.sockets.on('connection', (socket) => {
     socket.id = Math.random(); // assign the user a random ID
     SOCKETS[socket.id] = socket;
-    createChat("test");
+
 
     socket.on('joinRoom', (room) => {
         if(rooms[room] != undefined && rooms[room].users != undefined){
-            console.log("haha");
             rooms[room].users.push(socket.id);
+            SOCKETS[socket.id].join(room);
         }
     });
     
     socket.on('sendMsg', (data) => {
-        console.log(socket.rooms);
-        console.log(rooms);
         let room = Object.keys(socket.rooms)[1];
         let userId = (socket.id + "").slice(2,7);
-        console.log(room);
-        console.log(rooms)
         if(rooms[room] != undefined){
             for(var i in rooms[room].users){
                 console.log(rooms[room].users[i]);
