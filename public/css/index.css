@@ -1,1 +1,47 @@
+html, body {
+  width: 100%;
+  height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+}
 
+body {
+  margin: 0 auto;
+  background-repeat: no-repeat ;
+  background-attachment: fixed;
+  background-width:100%;
+  background-position: center;
+  background-size: contain;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 100;
+  background: radial-gradient(circle, #E25676,  #6495F5);
+  background-size: 600% 600%;
+
+  -webkit-animation: colorSpin 30s linear infinite;
+  -moz-animation: colorSpin 30s linear infinite;
+  animation: colorSpin 30s linear infinite;
+}
+    @-webkit-keyframes colorSpin {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @-moz-keyframes colorSpin {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  @keyframes colorSpin { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+.logo {
+  text-align: center;
+  display: block; 
+  margin: 0 auto;
+  margin-top: 40%;
+  width:300px;
+  
+}
