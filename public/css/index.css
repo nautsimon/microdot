@@ -4,6 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     color: #FFF;
+
     
 }
 html{
@@ -11,6 +12,8 @@ html{
 }
 
 body {
+
+  
   margin: 0 auto;
   background-repeat: no-repeat ;
   background-attachment: fixed;
@@ -19,8 +22,12 @@ body {
   background-size: contain;
   font-family: 'Work Sans', sans-serif;
   font-weight: 100;
-  background: radial-gradient(circle, #E25676,  #6495F5);
+  
+  background: radial-gradient(circle, #E25676,  #6495F5), url("/public/images/microdot.png")  no-repeat center;
+  background-size: cover; 
   background-size: 600% 600%;
+
+  
   -webkit-animation: colorSpin 30s linear infinite;
   -moz-animation: colorSpin 30s linear infinite;
   animation: colorSpin 30s linear infinite;
@@ -31,7 +38,7 @@ body {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
   }
-  @-moz-keyframes colorSpin {
+  @-moz-keyframes colorSpin {`
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
@@ -137,11 +144,12 @@ nav a:hover {
   color: #fff;
   padding-left: 15px;
   padding-top: 15px;
+  background: url("/public/images/microdot.png")  no-repeat center;
+  opacity : 0.4;
 
-  background-color: rgba(0, 0, 0, 0.1);
 }
 .entrytext{
-
+	opacity : 0.9;
 }
 .message{
 
