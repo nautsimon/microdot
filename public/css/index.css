@@ -23,7 +23,7 @@ body {
   font-family: 'Work Sans', sans-serif;
   font-weight: 100;
   
-  background: radial-gradient(circle, #E25676,  #6495F5), url("/public/images/microdot.png")  no-repeat center;
+  background: radial-gradient(circle, #E25676,  #6495F5), url("/public/images/MICRODOT.png")  no-repeat center;
   background-size: cover; 
   background-size: 600% 600%;
 
@@ -144,7 +144,7 @@ nav a:hover {
   color: #fff;
   padding-left: 15px;
   padding-top: 15px;
-  background: url("/public/images/microdot.png")  no-repeat center;
+  background: url("/public/images/MICRODOT.png")  no-repeat center;
   opacity : 0.7;
 
 }
