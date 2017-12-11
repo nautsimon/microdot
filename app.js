@@ -53,8 +53,10 @@ io.sockets.on('connection', (socket) => {
         if(rooms[room] != undefined){
             for(var i in rooms[room].users){
                 console.log(rooms[room].users[i]);
-                if(SOCKET[rooms[room].users[i]] != undefined){
+                if(SOCKETS[rooms[room].users[i]] != undefined){
                     SOCKETS[rooms[room].users[i]].emit('newMsg', {id: userId, msg: data});
+                } else {
+                    console.log("user doesn't exist!!");
                 }
             }
         }
