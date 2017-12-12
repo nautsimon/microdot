@@ -52,7 +52,6 @@ io.sockets.on('connection', (socket) => {
         let userId = (socket.id + "").slice(2,7);
         if(rooms[room] != undefined){
             for(var i in rooms[room].users){
-                console.log(rooms[room].users[i]);
                 if(SOCKETS[rooms[room].users[i]] != undefined){
                     SOCKETS[rooms[room].users[i]].emit('newMsg', {id: userId, msg: data});
                 } else {
@@ -63,7 +62,6 @@ io.sockets.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
-        console.log('disconnect');
         delete SOCKETS[socket.id];
     })
 });
