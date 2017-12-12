@@ -4,9 +4,8 @@ var createMain = document.getElementById('createMain');
 
 
 joinMain.onsubmit = function(e){
-    console.log("gay");
     e.preventDefault();
-    window.location = window.location + "chat/" + 
+    window.location = window.location + "chat/" + document.getElementById('joinForm').value;
 }
 
 createMain.onsubmit = function(e){
