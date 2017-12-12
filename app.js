@@ -20,9 +20,11 @@ app.get('/chat/:chatID', (req, res) => {
     res.sendFile(__dirname + "/views/chat.html");
 });
 
-app.get('/createChat/:chatID', (req, res) => {
-    createChat(req.params.chatID);
-    res.send("<h1>Chat created, please go to <a>http://microdot.tech/chat/" + req.params.chatID + "</a></h1>");
+app.get('/createChat', (req, res) => {
+    var chatID = Math.random().toString(36).substring(3); // get a random ID
+    chatID = chatID.replace(/[0-9]/g, ''); // sanitize out all numbers
+    createChat(chatID);
+    res.send("<h1>Chat created, please go to <a>http://microdot.tech/chat/" + chatID + "</a></h1>");
 });
 
 server.listen(8080);
