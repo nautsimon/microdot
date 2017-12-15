@@ -2,6 +2,7 @@ const https = require('http');
 const express = require("express")
 const app = express();
 const server = require('http').Server(app);
+const crypto = require('crypto');
 
 const io = require('socket.io')(server);
 
@@ -22,10 +23,10 @@ app.get('/chat/:chatID', (req, res) => {
 
 /*endpoint to request for a new chat, creates a random chatID*/
 app.get('/createChat', (req, res) => {
-    let chatID = Math.random().toString(36).substring(3); // get a random ID
-    chatID = chatID.replace(/[0-9]/g, ''); // sanitize out all numbers
+    //let chatID = Math.random().toString(36).substring(3); // get a random ID
+    let chatID = crypto.randomBytes(32).toString('hex');//.replace(/[0-9]/g, '');
     createChat(chatID);
-    res.send("<h1><a href=\"http://microdot.tech/chat/" + chatID + "\">Chat created<a></h1>");
+    res.redirect('/chat/' + chatID);
 });
 
 server.listen(8080);
@@ -75,9 +76,6 @@ io.sockets.on('connection', (socket) => {
                 if(SOCKETS[rooms[room].users[i]] != undefined){
                     /*send to all users in the sender's room*/
                     SOCKETS[rooms[room].users[i]].emit('newMsg', {id: userId, msg: data});
-                } else {
-                    /*"error handling" for the above mentioned bug.*/
-                    console.log("user doesn't exist!!");
                 }
             }
         }
